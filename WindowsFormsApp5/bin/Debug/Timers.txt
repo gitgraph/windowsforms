@@ -1,0 +1,13 @@
+KitchenTimer_21
+1
+1
+9
+42
+9
+42
+10
+0
+
+Paused
+17
+False
