@@ -1,6 +1,86 @@
 # windowsforms 
 
 
+ Windows executable software.
+
+ Programming language
+ .NET, C#
+
+ Documented code and methods
+
+ Description
+ Kitchen timer with multiple timers.
+ Can save a list of timers.
+ The program has a menu for new file, save and open file.
+
+
+ ## TimerManager for Kitchen - Code description
+
+ This code handles a kitchen timer application, written in C#.  The code uses the `TimerManager` class to create, manage, and display information about multiple timers.
+
+ **Components of the class:**
+
+ * `kitchenTimers`: A list that stores `KitchenTimer` objects, which represent individual timers.
+ * `currentCount`: A variable that keeps track of a global counter (probably used to keep track of total time).
+ * `currentIndex`: A variable that tracks the index of the currently selected timer in the `kitchenTimers` list.
+
+ **Constructor (`TimerManager()`):**
+
+ * Initializes the `kitchenTimers` list and sets values for `currentCount` and `currentIndex`.
+
+ **Properties (`CurrentCount` and `CurrentIndex`):**
+
+ * `CurrentCount`: Get and set methods to get and change the value of `currentCount`.
+ * `CurrentIndex`:
+     * Get method retrieves the value of `currentIndex`.
+     * Set method sets the value of `currentIndex` only if the index is valid (checked with the `CheckIndex` method).
+
+ **Timer Management:**
+
+ * `SetTimer(KitchenTimer kitchenTimer)`: Adds a new `KitchenTimer` to the `kitchenTimers` list.
+ * `GetTimer(int index)`: Gets a `KitchenTimer` object from the list based on index, returns `null` if index is invalid.
+ * `GetListLength()`: Returns the number of elements in the `kitchenTimers` list.
+ * `UpdateTimers()`: Updates all timers in the `kitchenTimers` list if their status is `Running`.
+     * Calculates elapsed minutes and seconds for each timer based on `currentCount` and initial values.
+     * Updates values for minutes and seconds in the `KitchenTimer` objects.
+     * Sets the status to `Finished' if the timer time is up.
+
+ **Timer Control:**
+
+ * `DeleteTimer(int index)`: Deletes a timer from the `kitchenTimers` list based on index (if index is valid).
+ * `PauseTimer(int index)`: Pauses a timer in the `kitchenTimers` list based on index (if index is valid and the timer is not already finished).
+     * Saves current values for minutes and seconds in paused timer.
+ * `PauseTimers()`: Pauses all timers in the `kitchenTimers` list (if not already finished).
+ * `ResumeTimer(int index)`: Resumes a paused timer in the `kitchenTimers` list based on index (if index is valid and the timer has not already finished).
+     * Sets the status to `Running` and updates the global counter `currentCount` to the current time.
+
+ **Time adjustment:**
+
+ * `PlusMinute(int index)`: Increases the number of minutes for a timer in the `kitchenTimers` list based on index (if index is valid).
+ * `MinusMinute(int index)`: Decreases the number of minutes for a timer in the `kitchenTimers` list based on index (if index is valid and the number of minutes is greater than zero).
+
+ **Viewing:**
+
+ * `StopTimer()`: Sets the status to `Stopped` for the selected timer (retrieved with `CurrentIndex`).
+ * `GetTimerText(int index)`: Returns a string with the formatted time (minutes:seconds) of a timer in the `kitchenTimers` list based on index (if index is null, "00:00" is returned).
+ * `GetKitchenTimerStringsList()`: Returns an array of strings containing information about all timers in the `kitchenTimers` list (minutes, seconds, description, status).
+
+ **Index Check:**
+
+ * `CheckIndex(int index)`: Checks if a specified index exists in the `kitchenTimers` list and returns `true` if valid, otherwise `false`.
+
+ **File Management:**
+
+ * `ReadDataFromFile(string fileName)`: Reads data about timers from a file using the `FileManager` class (assumes this class handles loading).
+ * `WriteDataToFile(string fileName)`: Writes data about timers to a file using the `FileManager` class (assumes this class handles printing).
+
+
+
+
+
+# windowsforms - Swedish 
+
+
 Windows körbar programvara. 
 
 Programspråk
